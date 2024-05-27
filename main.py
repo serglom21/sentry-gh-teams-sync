@@ -1,6 +1,6 @@
 from Sentry import Sentry
 from Github import Github
-from flask import Flask, request
+from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
