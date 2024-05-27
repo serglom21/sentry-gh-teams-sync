@@ -33,7 +33,7 @@ def github_webhook_post():
         return jsonify({'status': 'success'}), 200
     except Exception as error:
         print(error)
-        return jsonify({'status': 'failed'}), 502
+        return jsonify({'status': 'failed', 'message': str(error)}), 502
 
 if __name__ == "__main__":
     #app.run(host='127.0.0.1', port=8080, debug=True)
