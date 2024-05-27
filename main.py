@@ -29,8 +29,11 @@ def github_webhook_post():
             member_id = sentry.get_member_id_from_email(email)
             response = sentry.delete_member_from_team(member_id, data["team"]["slug"])
             print(f'member deleted: {response}')
+        
+        return jsonify({'status': 'success'}), 200
     except Exception as error:
         print(error)
+        return jsonify({'status': 'failed'}), 502
 
 if __name__ == "__main__":
     #app.run(host='127.0.0.1', port=8080, debug=True)
