@@ -28,6 +28,15 @@ class Sentry:
         elif response.status_code == 200:
             print("team already created")
             return False
+        
+    def delete_team_if_exists(self, team_slug):
+        url = f'https://sentry.io/api/0/teams/tim-hortons/{team_slug}'
+        response = request(url, method = "DELETE", token = self.api_token)
+        if response is not None and response.status_code == 200:
+            print(response.json())
+            return True
+        print(response.json())
+        return False
 
     def get_member_id_from_email(self, email):
         members = self.get_org_members()
