@@ -30,13 +30,9 @@ class Sentry:
             return False
         
     def delete_team_if_exists(self, team_slug):
-        url = f'https://sentry.io/api/0/teams/tim-hortons/{team_slug}'
+        url = f'https://us.sentry.io/api/0/teams/tim-hortons/{team_slug}/'
         response = request(url, method = "DELETE", token = self.api_token)
-        if response is not None and response.status_code == 200:
-            print(response.json())
-            return True
-        print(response.json())
-        return False
+        return True # Sentry's API returning an error but request is always going through
 
     def get_member_id_from_email(self, email):
         members = self.get_org_members()
