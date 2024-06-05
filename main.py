@@ -15,11 +15,11 @@ def check_health():
 @app.route('/github', methods=["POST"])
 def github_webhook_post():
     try:
-        data = request.get_json()
         verify_signature(request)
-        return jsonify({'status': "success"})
         sentry = Sentry()
         github = Github()
+        data = request.get_json()
+
         if (data["action"] == "created"):
             validate_params(data, "team", "slug")
             
