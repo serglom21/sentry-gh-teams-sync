@@ -19,16 +19,16 @@ In order to run this server succesfully, you will need to add the following envi
 
 The handler uses a GH authentication token which can be obtained from any of the ways listed [here](https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api?apiVersion=2022-11-28) (This was tested with a fine-grained personal token) <b>[Settings] -> [Developer Settings] -> Personal Access Tokens -> Fine-grained tokens </b> (No permissions required for fine-grained personal tokens)
 
-<b>SENTRY_TOKEN<b>
+<b>SENTRY_TOKEN</b>
 
 The handler uses a Sentry Auth Token to call the [Team API endpoints](https://docs.sentry.io/api/teams/)
 You can create a token by following this [guide](https://docs.sentry.io/organization/integrations/integration-platform/internal-integration/#auth-tokens), with Team Admin and Member Read&Write permissions
 
-<b>SENTRY_ORG_SLUG<b>
+<b>SENTRY_ORG_SLUG</b>
 
 Your Sentry org slug. Found under <b>[Settings] -> [Organization Settings] -> [Organization Slug]</b>. Used to build the API url endpoints.
 
-<b>GH_WEBHOOK_TOKEN<b>
+<b>GH_WEBHOOK_TOKEN</b>
 
 Your [Secret Token](https://docs.github.com/en/webhooks/using-webhooks/validating-webhook-deliveries#creating-a-secret-token) used to validate and authenticate requests coming from GH. Make sure that this value is the same as the one added to the Webhook Settings
 
