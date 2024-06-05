@@ -4,6 +4,7 @@ from utils.exceptions.MissingParametersException import MissingParametersExcepti
 from utils.responses.HTTPResponse import HTTPResponse
 from utils.responses.GithubResponse import GithubResponse
 from flask import Flask, request, jsonify
+from utils.webhook import verify_signature
 
 app = Flask(__name__)
 
@@ -15,6 +16,8 @@ def check_health():
 def github_webhook_post():
     try:
         data = request.get_json()
+        verify_signature(request)
+        return jsonify({'status': "success"})
         sentry = Sentry()
         github = Github()
         if (data["action"] == "created"):
