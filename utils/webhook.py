@@ -12,15 +12,6 @@ def verify_signature(request):
     Args:
         request: Flask request object
     
-    print(request.data)
-    secret_token = os.environ["GH_WEBHOOK_TOKEN"]
-    signature_header = request.headers.get('X-Hub-Signature-256').split('sha256=')[-1].strip()
-    if not signature_header:
-        raise Exception("x-hub-signature-256 header is missing!")
-    secret_token = secret_token.encode()
-    expected_signature = hmac.HMAC(key=secret_token, msg=request.data, digestmod=hashlib.sha256).hexdigest()
-    if not hmac.compare_digest(signature_header, expected_signature):
-        raise Exception("Request signatures didn't match!")
     """
     signature_header = request.headers.get('X-Hub-Signature-256')
     secret_token = os.environ["GH_WEBHOOK_TOKEN"]
