@@ -2,7 +2,7 @@
 
 ### What is this webhook handler for?
 
-The goal is to use this webhook handler to receive requests from Github when there are changes to any GH teams. The handler currently supports the following operations/callbacks:
+The goal is to use this webhook handler to receive requests from Github when there are changes to any GH teams and update the state of teams in Sentry. The handler currently supports the following operations/callbacks:
 
 - New Team created
 - Team deleted
