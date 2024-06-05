@@ -17,7 +17,5 @@ def verify_signature(request):
     secret_token = os.environ["GH_WEBHOOK_TOKEN"]
     hash_object = hmac.new(secret_token.encode('utf-8'), msg=request.data, digestmod=hashlib.sha256)
     expected_signature = "sha256=" + hash_object.hexdigest()
-    print(expected_signature)
-    print(signature_header)
     if not hmac.compare_digest(expected_signature, signature_header):
         raise Exception("Request signatures didn't match!")
