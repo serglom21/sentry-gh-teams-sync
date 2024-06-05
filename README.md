@@ -9,6 +9,8 @@ The goal is to use this webhook handler to receive requests from Github when the
 - Member added to an existing team
 - Member removed from an existing team
 
+<b>NOTE:</b> For the member events to work, the handler fetches the public email address from GH profiles based on the ID, so make sure that members in the organization have a public GH email that matches the email in Sentry
+
 ### How to use this webhook handler?
 
 This is a flask server that needs to be hosted in a fully qualified domain name (FQDN), which is resolvable on the internet.
